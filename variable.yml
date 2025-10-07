@@ -1,1 +1,18 @@
+name: Testing workflow  variables
 
+on:
+  workflow_dispatch
+
+  env:
+    cloud: google-cloud
+
+  job:
+    greeting_job:
+      run-on: ubantu-latest
+      env:
+        Greeting: Hello
+      steps:
+        - name: "say hello praveen it's Monday"
+          run: eco"$Greeting $First_Name is using $cloud!"
+          env:
+            first_name: Vishal
