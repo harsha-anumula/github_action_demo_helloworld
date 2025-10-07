@@ -1,0 +1,31 @@
+name: Hello World Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  hello-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Run simple script
+      - name: Run a simple script
+        run: echo "Running workflow script in workflow-repo2!"
+
+      # Step 3: Use the custom action from action-repo1
+      - name: Run Hello World Action
+        uses: your-github-username/action-repo1@main
+        with:
+          name: "Praveen"
+
+      # Step 4: Combine script + action
+      - name: Run script + action together
+        run: |
+          echo "Now combining script + action output"
+          echo "Hello again from workflow-repo2"
